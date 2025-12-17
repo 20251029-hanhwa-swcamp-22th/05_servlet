@@ -1,4 +1,4 @@
-package org.ho.chap03responselecturesource;
+package org.ho.chap03responselecturesource.section01.response;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,7 +20,7 @@ public class ResponseTest extends HttpServlet {
    *  */
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    // System.out.println(1/0); => 500으로 에러 발생
     /* 문자열을 이용해 사용자에게 응답 보낼 HTML 페이지 작성 */
     StringBuilder sb = new StringBuilder();
 

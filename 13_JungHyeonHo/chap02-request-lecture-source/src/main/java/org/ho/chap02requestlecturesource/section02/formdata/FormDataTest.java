@@ -1,4 +1,4 @@
-package org.ho.chap02requestlecturesource.section01.querystring;
+package org.ho.chap02requestlecturesource.section02.formdata;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,12 +10,12 @@ import java.io.IOException;
 import java.util.Arrays;
 
 // tip. 매핑 주소는 절대 경로로 작성해야 함
-@WebServlet(value="/querystring")
-public class QueryStringTest extends HttpServlet {
+@WebServlet(value="/formdata")
+public class FormDataTest extends HttpServlet {
 
-  /* 서브릿에 매핑된 주소로 GET 방식 요청이 발생하면 호출되는 메서드 */
+  /* 서브릿에 매핑된 주소로 POST 방식 요청이 발생하면 호출되는 메서드 */
   @Override
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     /* 매개 변수 HttpServletRequest req에는
     * 클라이언트의 요청 정보가 담겨있는 객체를 참조하는 주소가 들어있음
     *
