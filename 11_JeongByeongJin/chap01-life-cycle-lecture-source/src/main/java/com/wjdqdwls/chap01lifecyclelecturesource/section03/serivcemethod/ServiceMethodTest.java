@@ -1,0 +1,39 @@
+package com.wjdqdwls.chap01lifecyclelecturesource.section03.serivcemethod;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(value="/request-service")
+
+public class ServiceMethodTest extends HttpServlet {
+
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    System.out.println("GET 방식의 요청 처리 메서드");
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    System.out.println("POST 방식의 요청 처리 메서드");
+  }
+
+  @Override
+  protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    // httpServletRequest
+    // - HTTP로 전달되어진 요청과 관련된 정보를 모두 담고 있는 객체
+    // - 요청방식(Method), 전달 값(파라미터), 클라이언트 정보(ip) 등...
+    String httpmethod = req.getMethod();
+    System.out.println("httpmethod = " + httpmethod);
+
+    if("got".equals(httpmethod)){
+      doGet(req,resp);
+    } else if ("POST".equals(httpmethod)){
+      doPost(req,resp);
+    }
+  }
+}
